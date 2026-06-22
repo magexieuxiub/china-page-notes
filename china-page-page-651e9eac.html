@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯记忆 · 叙事笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Noto Serif SC', 'Times New Roman', serif;
+            background: linear-gradient(145deg, #fceed1 0%, #f7d9aa 50%, #f0bc7c 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.75;
+            color: #2e241e;
+        }
+
+        .card {
+            max-width: 780px;
+            width: 100%;
+            background: #fffcf5;
+            border-radius: 40px 40px 32px 32px;
+            box-shadow: 0 20px 40px rgba(120, 70, 30, 0.15), 0 4px 12px rgba(0,0,0,0.03);
+            padding: 2.8rem 2.5rem 3.2rem;
+            transition: box-shadow 0.25s ease;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 0.25rem;
+            color: #4f2f1a;
+            border-left: 5px solid #d9994a;
+            padding-left: 1rem;
+        }
+
+        .hero-sub {
+            font-size: 0.95rem;
+            color: #8b6f54;
+            margin-top: -0.2rem;
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .intro {
+            font-size: 1.15rem;
+            color: #3d2b1b;
+            border-bottom: 1px dashed #e3cdb0;
+            padding-bottom: 1.2rem;
+            margin-bottom: 1.8rem;
+            font-weight: 350;
+            text-wrap: pretty;
+        }
+
+        .body-text {
+            margin-bottom: 1.5rem;
+            text-indent: 2em;
+            font-size: 1.05rem;
+            color: #2f2218;
+        }
+
+        .body-text a {
+            color: #b5793b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #dbb78a;
+            transition: background 0.2s, border-color 0.2s;
+            padding: 0 0.1rem;
+        }
+
+        .body-text a:hover {
+            background: #f7e5cd;
+            border-bottom: 1px solid #b5793b;
+            border-radius: 2px;
+        }
+
+        .pull-quote {
+            background: #f9efe2;
+            padding: 1.5rem 2rem 1.2rem 2rem;
+            border-radius: 32px 12px 32px 12px;
+            margin: 2rem 0 1.8rem 0;
+            font-style: normal;
+            position: relative;
+            box-shadow: inset 0 0 0 1px #e7d4bb;
+        }
+
+        .pull-quote p {
+            font-size: 1.2rem;
+            color: #4a3322;
+            text-indent: 0;
+            margin: 0;
+            line-height: 1.7;
+            font-weight: 380;
+        }
+
+        .pull-quote::before {
+            content: "“";
+            font-size: 3.4rem;
+            color: #cb9e69;
+            position: absolute;
+            left: 0.6rem;
+            top: -0.2rem;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .scene-highlight {
+            background: #fff8ed;
+            padding: 1.2rem 1.8rem 1.2rem 2rem;
+            border-radius: 24px;
+            margin: 1.8rem 0 1.2rem 0;
+            border-left: 4px solid #dba668;
+        }
+
+        .scene-highlight p {
+            text-indent: 0;
+            margin-bottom: 0.4rem;
+        }
+
+        .scene-highlight p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-summary {
+            margin: 2.4rem 0 0.8rem 0;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e6d0b6;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #4f341b;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+
+        .faq-a {
+            color: #4e3c2b;
+            padding-left: 1.2rem;
+            font-size: 0.96rem;
+            border-left: 2px solid #e3c8a5;
+            margin-top: 0.1rem;
+        }
+
+        .closing-note {
+            margin-top: 2.8rem;
+            padding: 1rem 0 0 0;
+            font-size: 0.95rem;
+            color: #6f543a;
+            text-align: right;
+            border-top: 1px solid #eddcc8;
+            letter-spacing: 0.3px;
+        }
+
+        .closing-note span {
+            background: #eddcc8;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #3e2a18;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .card {
+                padding: 2rem 1.2rem 2.5rem;
+                border-radius: 30px;
+            }
+            .hero-title {
+                font-size: 1.9rem;
+                padding-left: 0.7rem;
+            }
+            .hero-sub {
+                font-size: 0.85rem;
+                padding-left: 1.2rem;
+                margin-bottom: 1.3rem;
+            }
+            .intro {
+                font-size: 1rem;
+            }
+            .body-text {
+                font-size: 0.98rem;
+            }
+            .pull-quote {
+                padding: 1.2rem 1.2rem 1rem 1.6rem;
+            }
+            .pull-quote p {
+                font-size: 1.05rem;
+            }
+            .scene-highlight {
+                padding: 1rem 1rem 1rem 1.4rem;
+            }
+            .closing-note {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            .card {
+                padding: 1.6rem 1rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1 class="hero-title">四年之约，夏日叙事</h1>
+    <div class="hero-sub">—— 并非只有胜负才值得被记住</div>
+
+    <p class="intro">
+        很多人以为，世界杯只是一项赛事。但在那些不被镜头追逐的时刻里，它更像一段跨越时区的集体日记，每一页都写着不同的悲喜与体温。
+    </p>
+
+    <p class="body-text">
+        每个赛区的夜晚，总有一些画面留在记忆里：不是绝杀，不是捧杯，而是一个球员坐在草地上，把脸埋在球衣里，久久没有起身；或者是看台上一位老人，在终场哨响后仍不肯离去，只是静静望着那片被踩乱的草皮。这些细微的瞬间，构成了<a href="https://china-page-fifaworldcup.com">世界杯</a>的另一副面孔——它并不总是激昂的，更多时候，它沉默、均匀、像一场漫长的呼吸。
+    </p>
+
+    <p class="body-text">
+        四年一次，听起来很规律。但人的四年是不一样的。有人从学生变成了父亲，有人告别了一座城市，有人经历了一场漫长的告别。当世界杯再次到来，身边一起看球的人可能已经换了一轮，口味变了，熬夜的能力也变了。唯一不变的，是那个明明知道结果、却还是守在屏幕前的自己。
+    </p>
+
+    <div class="pull-quote">
+        <p>足球从不只属于天才的脚尖，它同样属于看台上那些攥紧衣角的人，属于凌晨三点不敢出声的欢呼与叹息。</p>
+    </div>
+
+    <p class="body-text">
+        在许多人的叙述里，世界杯的核心关键词是“夺冠”或“遗憾”。但如果你稍微扒开表层，会发现更持久的东西：一个冷门国家的球迷在广场上抱头痛哭，不是因为输球，而是因为终于被世界看见了；一位老解说在直播间摘下眼镜，低声说“这就是足球”；还有那些数不清的、毫无功利心的热爱——在街边、在沙地、在废墟旁的空地上，一个破旧的足球就能撑起一整片童年。这些，才是<a href="https://china-page-fifaworldcup.com">世界杯</a>真正的纹理。
+    </p>
+
+    <div class="scene-highlight">
+        <p>📌 某个寻常的下午，南美一座小镇的酒吧里，电视上正播放着十年前的比赛回放。没人说话，但所有人都坐在原地，仿佛第一次看那场比赛。</p>
+        <p>—— 世界杯并不只活在举办的那一个月里。它被储存在那些愿意反复回忆的人的脑海里。</p>
+    </div>
+
+    <p class="body-text">
+        有人说，世界杯越来越像一场盛大的标准化表演。但只要你愿意绕到舞台背后，仍能找到那些粗粝而生动的碎片：翻译官在混采区用错成语引发的哄笑，替补球员在热身区偷偷模仿教练的夸张动作，还有大雨中坚持奏完国歌的军乐队——这些没有奖杯的瞬间，反而更贴近足球的本意。
+    </p>
+
+    <div class="faq-summary">
+        <div class="faq-item">
+            <div class="faq-q">问：每次世界杯感觉都差不多，还有必要认真看吗？</div>
+            <div class="faq-a">答：表面上看，赛程、强队、解说词都似曾相识。但如果你关注的是那些“非著名瞬间”——比如某位老将的最后一场、某个小国第一次进球后全队围成一圈祷告——就会明白，世界杯的结构虽然固定，但里面的人永远在变。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">问：为什么很多不踢球的人也会关心世界杯？</div>
+            <div class="faq-a">答：因为它提供了一种集体叙事的可能。在同一个时间段里，全世界的人都在谈论同一件事，这种共时性的联结本身就弥足珍贵。哪怕你只是参与讨论输赢，也已经成为这场庞大对话的一部分。</div>
+        </div>
+    </div>
+
+    <p class="body-text">
+        所以，如果你问我<a href="https://china-page-fifaworldcup.com">世界杯</a>是什么，我大概不会说它是“顶级赛事”或“足球盛宴”。我更愿意把它描述为一个容器——每四年打开一次，让人们把各自的记忆、情绪、期待都放进去。有些人倒进去的是喜悦，有些人倒进去的是遗憾，还有些人只是静静地放了一颗糖，然后走开。但无论放进去什么，这个容器从不拒绝。
+    </p>
+
+    <div class="closing-note">
+        <span>读到这里，也许可以翻开某个旧抽屉，找回那件褪色的球衣。</span>
+    </div>
+</div>
+
+</body>
+</html>
